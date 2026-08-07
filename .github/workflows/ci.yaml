@@ -47,5 +47,4 @@ jobs:
         with:
           target: gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.MAR_DATA_TOKEN }}
-          
+          GITHUB_TOKEN: ${{ secrets.MAR_DATA_TOKEN }}  
