@@ -9,9 +9,8 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.39">
 
-  <meta name="author" content="Marine Petrosyan">
-  <meta name="dcterms.date" content="2026-08-08">
-  <title>Data Vision – Citibike</title>
+  <meta name="author" content="Data Analytics Project">
+  <title>Data Vision – Citi Bike Jersey City 2025-2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,13 +28,76 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -124,72 +186,601 @@
       margin-right: 0; 
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles/mermaid-theme.css">
-  <style>
-    .icon-xxl { font-size: 84px; }
-    .icon-xl  { font-size: 64px; }
-    .icon-lg  { font-size: 48px; }
-    .muted { opacity: .8 }
-    .pill { border-radius: 10px; }
-    .circle { border-radius: 50%; }
-  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Citibike</h1>
+  <h1 class="title">Citi Bike Jersey City 2025-2026</h1>
+  <p class="subtitle">From Raw Data to an Interactive Tableau Dashboard</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Marine Petrosyan 
+Data Analytics Project 
 </div>
 </div>
 </div>
 
-  <p class="date">2026-08-08</p>
 </section>
-<section id="objective" class="slide level2 smaller">
-<h2>Objective</h2>
+<section id="project-overview" class="slide level2 smaller">
+<h2>Project Overview</h2>
+<p><br><br> This project analyzes <strong>Jersey City Citi Bike trips during 2025-2026</strong> by combining trip, weather, and geographic data.</p>
+<p>The objective is to build a complete analytics workflow from raw web data to an interactive Tableau dashboard.</p>
 <ul>
-<li>Transform data into a <strong>strategic banking asset</strong><br>
-</li>
-<li>Eliminate <strong>data silos</strong> and enable <strong>integrated decision-making</strong><br>
-</li>
-<li>Build a <strong>scalable, governed, and AI-ready organization</strong> ## The Core Problem: Data Silos {.smaller}</li>
-<li><strong>Fragmented systems across:</strong>
-<ul>
-<li>Core banking<br>
-</li>
-<li>CRM<br>
-</li>
-<li>Risk<br>
-</li>
-<li>Marketing<br>
-</li>
-<li>Other Sources</li>
-</ul></li>
-<li><strong>Consequences:</strong>
-<ul>
-<li>Inconsistent KPIs<br>
-</li>
-<li>Slow decision-making<br>
-</li>
-<li>Poor customer experience<br>
-</li>
-<li>Limited AI capability</li>
-<li>Missing Single Source of Truth ## Data Silos in Banking {.smaller} ##<a href="link">Linkedin</a></li>
-</ul></li>
+<li>Download data from multiple web sources</li>
+<li>Clean and prepare data with Python</li>
+<li>Perform exploratory and spatial analysis</li>
+<li>Store processed data in PostgreSQL/PostGIS</li>
+<li>Build a dashboard-ready Materialized View</li>
+<li>Connect Tableau to PostgreSQL</li>
+<li>Create a Tableau Extract</li>
+<li>Build an interactive analytics dashboard</li>
 </ul>
-
-
 </section>
+<section id="end-to-end-analytics-workflow" class="slide level2 smaller">
+<h2>End-to-End Analytics Workflow</h2>
+
+<img data-src="img/citibike_workflow.png" style="width:95.0%" class="r-stretch"></section>
+<section id="technologies-used" class="slide level2 smaller">
+<h2>Technologies Used</h2>
+<p><br><br></p>
+<h3 id="main-technology-stack">Main Technology Stack</h3>
+<ul>
+<li><strong>Python</strong> — data collection, preparation, analysis</li>
+<li><strong>pandas</strong> — tabular data manipulation</li>
+<li><strong>GeoPandas</strong> — geospatial analysis</li>
+<li><strong>Requests</strong> — downloading data and calling APIs</li>
+<li><strong>PostgreSQL</strong> — analytical database</li>
+<li><strong>PostGIS</strong> — spatial database extension</li>
+<li><strong>SQLAlchemy</strong> — Python database integration</li>
+<li><strong>Docker</strong> — PostgreSQL/PostGIS environment</li>
+<li><strong>Tableau</strong> — dashboard development</li>
+<li><strong>GitHub</strong> — project version control</li>
+</ul>
+</section>
+<section id="downloading-data-from-the-web" class="slide level2 smaller">
+<h2>1. Downloading Data from the Web</h2>
+<p>The project starts with three independent external data sources. <br><br></p>
+<h3 id="citi-bike-trip-data">Citi Bike Trip Data</h3>
+<ul>
+<li>Monthly Citi Bike ZIP files</li>
+<li>Approximately 12 monthly datasets</li>
+<li>Each ZIP file contains CSV trip records</li>
+<li>Jersey City trips for the year 2025</li>
+</ul>
+<h3 id="weather-data">Weather Data</h3>
+<ul>
+<li>Open-Meteo Historical Weather API</li>
+<li>Daily weather observations</li>
+<li>JSON response converted to tabular format</li>
+</ul>
+<h3 id="geographic-data">Geographic Data</h3>
+<ul>
+<li>Jersey City neighborhood GeoJSON</li>
+<li>Polygon boundaries used for spatial analysis</li>
+</ul>
+</section>
+<section id="citi-bike-trip-data-1" class="slide level2 smaller">
+<h2>Citi Bike Trip Data</h2>
+<p>The Citi Bike dataset contains individual bicycle trips. <br><br></p>
+<h3 id="important-variables">Important Variables</h3>
+<ul>
+<li><code>ride_id</code></li>
+<li><code>rideable_type</code></li>
+<li><code>started_at</code></li>
+<li><code>ended_at</code></li>
+<li><code>start_station_name</code></li>
+<li><code>end_station_name</code></li>
+<li><code>start_lat</code></li>
+<li><code>start_lng</code></li>
+<li><code>end_lat</code></li>
+<li><code>end_lng</code></li>
+<li><code>member_casual</code></li>
+</ul>
+<p>Each row represents <strong>one Citi Bike trip</strong>.</p>
+</section>
+<section id="weather-data-1" class="slide level2 smaller">
+<h2>Weather Data</h2>
+<p>Weather information is retrieved using the <strong>Open-Meteo API</strong>. <br><br></p>
+<h3 id="daily-weather-variables">Daily Weather Variables</h3>
+<ul>
+<li>Mean temperature</li>
+<li>Maximum temperature</li>
+<li>Minimum temperature</li>
+<li>Precipitation</li>
+<li>Rain</li>
+<li>Snowfall</li>
+<li>Maximum wind speed</li>
+</ul>
+<p>The weather data is later joined with Citi Bike trips using the <strong>ride date</strong>.</p>
+</section>
+<section id="neighborhood-geographic-data" class="slide level2 smaller">
+<h2>Neighborhood Geographic Data</h2>
+<p>The neighborhood dataset contains Jersey City polygon boundaries in <strong>GeoJSON</strong> format. <br><br></p>
+<h3 id="geographic-data-usage">Geographic Data Usage</h3>
+<ul>
+<li>Identify the neighborhood of each start station</li>
+<li>Identify the neighborhood of each end station</li>
+<li>Aggregate rides geographically</li>
+<li>Compare neighborhood activity</li>
+<li>Create Tableau geographic visualizations</li>
+</ul>
+<p>GeoPandas and PostGIS are used for spatial operations.</p>
+</section>
+<section id="preparing-the-data" class="slide level2 smaller">
+<h2>2. Preparing the Data</h2>
+<p>The raw datasets cannot be analyzed directly.</p>
+<p>A data preparation pipeline is created in Python. <br><br></p>
+<h3 id="main-preparation-steps">Main Preparation Steps</h3>
+<ol type="1">
+<li>Extract ZIP files</li>
+<li>Load CSV files</li>
+<li>Combine monthly trip datasets</li>
+<li>Rename and standardize columns</li>
+<li>Convert data types</li>
+<li>Parse dates and timestamps</li>
+<li>Remove duplicates</li>
+<li>Validate coordinates</li>
+<li>Handle missing values</li>
+<li>Standardize formats</li>
+</ol>
+</section>
+<section id="cleaning-citi-bike-data" class="slide level2 smaller">
+<h2>Cleaning Citi Bike Data</h2>
+<p>Example Python workflow:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>citibike_df[<span class="st">"started_at"</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb1-4"><a></a>    citibike_df[<span class="st">"started_at"</span>]</span>
+<span id="cb1-5"><a></a>)</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>citibike_df[<span class="st">"ended_at"</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb1-8"><a></a>    citibike_df[<span class="st">"ended_at"</span>]</span>
+<span id="cb1-9"><a></a>)</span>
+<span id="cb1-10"><a></a></span>
+<span id="cb1-11"><a></a>citibike_df <span class="op">=</span> citibike_df.drop_duplicates(</span>
+<span id="cb1-12"><a></a>    subset<span class="op">=</span><span class="st">"ride_id"</span></span>
+<span id="cb1-13"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The main goal is to produce a consistent dataset before beginning the analysis.</p>
+</section>
+<section id="feature-engineering" class="slide level2 smaller">
+<h2>Feature Engineering</h2>
+<p>Several analytical variables are created from the original trip data. <br><br></p>
+<h3 id="time-features">Time Features</h3>
+<ul>
+<li>Ride date</li>
+<li>Year</li>
+<li>Quarter</li>
+<li>Month</li>
+<li>Day of week</li>
+<li>Hour</li>
+<li>Weekend / weekday</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="ride-features">Ride Features</h3>
+<ul>
+<li>Ride duration</li>
+<li>Distance</li>
+<li>Distance category</li>
+<li>Duration category</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="weather-features">Weather Features</h3>
+<ul>
+<li>Rain flag</li>
+<li>Temperature category</li>
+<li>Weather conditions</li>
+</ul>
+</section>
+<section id="example-ride-duration" class="slide level2 smaller">
+<h2>Example: Ride Duration</h2>
+<p><br><br></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>citibike_df[<span class="st">"duration_min"</span>] <span class="op">=</span> (</span>
+<span id="cb2-2"><a></a>    citibike_df[<span class="st">"ended_at"</span>]</span>
+<span id="cb2-3"><a></a>    <span class="op">-</span> citibike_df[<span class="st">"started_at"</span>]</span>
+<span id="cb2-4"><a></a>).dt.total_seconds() <span class="op">/</span> <span class="dv">60</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ride duration allows us to analyze how long users typically keep a Citi Bike.</p>
+</section>
+<section id="analysis-with-python" class="slide level2 smaller">
+<h2>3. Analysis with Python</h2>
+<p>Python is used for the initial exploratory analysis before building the Tableau dashboard. <br><br></p>
+<h3 id="main-analysis-areas">Main Analysis Areas</h3>
+<ul>
+<li>Exploratory Data Analysis</li>
+<li>Trip trends</li>
+<li>Member behavior</li>
+<li>Bike type usage</li>
+<li>Station activity</li>
+<li>Spatial patterns</li>
+<li>Weather impact</li>
+<li>Feature engineering</li>
+</ul>
+</section>
+<section id="exploratory-data-analysis" class="slide level2 smaller">
+<h2>Exploratory Data Analysis</h2>
+<p>The first stage focuses on understanding the structure and quality of the dataset. <br><br></p>
+<h3 id="questions">Questions</h3>
+<ul>
+<li>How many trips were recorded?</li>
+<li>Are there missing values?</li>
+<li>Are there duplicate rides?</li>
+<li>What is the typical trip duration?</li>
+<li>Which stations are most frequently used?</li>
+<li>How does activity change during the year?</li>
+</ul>
+</section>
+<section id="time-trend-analysis" class="slide level2 smaller">
+<h2>Time Trend Analysis</h2>
+<p>Trip activity is analyzed across different time dimensions. <br><br></p>
+<h3 id="time-aggregations">Time Aggregations</h3>
+<ul>
+<li>Daily rides</li>
+<li>Monthly rides</li>
+<li>Rides by hour</li>
+<li>Rides by weekday</li>
+<li>Seasonal activity</li>
+</ul>
+<p>This helps identify commuting patterns and seasonal differences in bike usage.</p>
+</section>
+<section id="member-vs-casual-riders" class="slide level2 smaller">
+<h2>Member vs Casual Riders</h2>
+<p>Citi Bike users are divided into two main categories: <br><br></p>
+<h3 id="member">Member</h3>
+<ul>
+<li>Subscription-based users</li>
+<li>More frequent usage</li>
+<li>Often associated with commuting behavior <br><br></li>
+</ul>
+<h3 id="casual">Casual</h3>
+<ul>
+<li>Non-subscription riders</li>
+<li>More recreational usage</li>
+<li>Potentially more sensitive to weather and seasonality</li>
+</ul>
+</section>
+<section id="station-analysis" class="slide level2 smaller">
+<h2>Station Analysis</h2>
+<p>Station activity is analyzed using both departure and arrival information. <br><br></p>
+<h3 id="metrics">Metrics</h3>
+<ul>
+<li>Number of departures</li>
+<li>Number of arrivals</li>
+<li>Total station activity</li>
+<li>Most popular start stations</li>
+<li>Most popular end stations</li>
+</ul>
+<p>This can help identify high-demand areas in the Citi Bike network.</p>
+</section>
+<section id="spatial-analysis" class="slide level2 smaller">
+<h2>Spatial Analysis</h2>
+<p>Latitude and longitude coordinates allow us to perform geographic analysis. <br><br></p>
+<h3 id="spatial-operations">Spatial Operations</h3>
+<ul>
+<li>Convert stations into geographic points</li>
+<li>Load neighborhood polygons</li>
+<li>Perform spatial joins</li>
+<li>Assign stations to neighborhoods</li>
+<li>Aggregate rides by neighborhood</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>stations_with_neighborhood <span class="op">=</span> gpd.sjoin(</span>
+<span id="cb3-2"><a></a>    stations_gdf,</span>
+<span id="cb3-3"><a></a>    neighborhoods_gdf,</span>
+<span id="cb3-4"><a></a>    predicate<span class="op">=</span><span class="st">"within"</span></span>
+<span id="cb3-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="weather-impact-analysis" class="slide level2 smaller">
+<h2>Weather Impact Analysis</h2>
+<p>Weather data is combined with daily Citi Bike activity. <br><br></p>
+<h3 id="questions-1">Questions</h3>
+<ul>
+<li>Does temperature affect the number of rides?</li>
+<li>How does rainfall influence demand?</li>
+<li>Are rides lower on snowy days?</li>
+<li>Does wind speed influence activity?</li>
+</ul>
+<p>The relationship between temperature and daily rides is particularly useful for understanding seasonal demand.</p>
+</section>
+<section id="creating-the-citi-bike-database" class="slide level2 smaller">
+<h2>4. Creating the Citi Bike Database</h2>
+<p>After the Python analysis, cleaned datasets are stored in <strong>PostgreSQL</strong>.</p>
+<p>PostGIS is enabled to support geographic data. <br><br></p>
+<h3 id="database">Database</h3>
+<ul>
+<li>Database name: <code>citibike</code></li>
+<li>Database engine: PostgreSQL</li>
+<li>Spatial extension: PostGIS</li>
+<li>Environment: Docker container</li>
+</ul>
+</section>
+<section id="database-structure" class="slide level2 smaller">
+<h2>Database Structure</h2>
+<p><br><br></p>
+<p>Main database tables:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Table</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>jersey_city</code></td>
+<td>Individual Citi Bike trips</td>
+</tr>
+<tr class="even">
+<td><code>jersey_weather</code></td>
+<td>Daily weather observations</td>
+</tr>
+<tr class="odd">
+<td><code>jersey_city_neighborhoods</code></td>
+<td>Neighborhood polygons</td>
+</tr>
+<tr class="even">
+<td><code>jc_2025_2026_stations</code></td>
+<td>Citi Bike station locations</td>
+</tr>
+</tbody>
+</table>
+<p>The database separates raw analytical entities while SQL is used to combine them for reporting.</p>
+</section>
+<section id="postgresql-postgis" class="slide level2 smaller">
+<h2>PostgreSQL + PostGIS</h2>
+<p>PostGIS extends PostgreSQL with geographic functionality. <br><br></p>
+<p>Example spatial operation:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a></a><span class="kw">SELECT</span></span>
+<span id="cb4-2"><a></a>    s.station_name,</span>
+<span id="cb4-3"><a></a>    n.neighborhood</span>
+<span id="cb4-4"><a></a><span class="kw">FROM</span> jc_2025_stations <span class="kw">AS</span> s</span>
+<span id="cb4-5"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods <span class="kw">AS</span> n</span>
+<span id="cb4-6"><a></a>    <span class="kw">ON</span> ST_Within(</span>
+<span id="cb4-7"><a></a>        s.geometry,</span>
+<span id="cb4-8"><a></a>        n.geometry</span>
+<span id="cb4-9"><a></a>    );</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This assigns each station to its corresponding Jersey City neighborhood.</p>
+</section>
+<section id="dashboard-ready-materialized-view" class="slide level2 smaller">
+<h2>5. Dashboard-Ready Materialized View</h2>
+<p><br><br></p>
+<p>Instead of asking Tableau to repeatedly join multiple large tables, a <strong>Materialized View</strong> is created.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a></a><span class="kw">CREATE</span> <span class="kw">MATERIALIZED</span> <span class="kw">VIEW</span> mv_tableau_citibike_dashboard <span class="kw">AS</span></span>
+<span id="cb5-2"><a></a><span class="kw">WITH</span> ride_base <span class="kw">AS</span> (</span>
+<span id="cb5-3"><a></a>    <span class="kw">SELECT</span></span>
+<span id="cb5-4"><a></a>        <span class="op">..</span>.</span>
+<span id="cb5-5"><a></a>    )</span>
+<span id="cb5-6"><a></a><span class="kw">SELECT</span></span>
+<span id="cb5-7"><a></a>    <span class="op">..</span>.</span>
+<span id="cb5-8"><a></a><span class="kw">FROM</span> ride_base <span class="kw">AS</span> r</span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_weather <span class="kw">AS</span> w</span>
+<span id="cb5-11"><a></a>    <span class="kw">ON</span> r.ride_date <span class="op">=</span> w.<span class="dt">date</span>:<span class="ch">:date</span></span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods <span class="kw">AS</span> start_n</span>
+<span id="cb5-14"><a></a>    <span class="kw">ON</span> ST_Within(r.start_geom, start_n.geometry)</span>
+<span id="cb5-15"><a></a></span>
+<span id="cb5-16"><a></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> jersey_city_neighborhoods <span class="kw">AS</span> end_n</span>
+<span id="cb5-17"><a></a>    <span class="kw">ON</span> ST_Within(r.end_geom, end_n.geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The view becomes the main analytical dataset for Tableau.</p>
+</section>
+<section id="why-use-a-materialized-view" class="slide level2 smaller">
+<h2>Why Use a Materialized View?</h2>
+<p>A Materialized View stores the result of the analytical query physically in PostgreSQL. <br><br></p>
+<h3 id="benefits">Benefits</h3>
+<ul>
+<li>Faster Tableau queries</li>
+<li>Centralized business logic</li>
+<li>Reusable analytical dataset</li>
+<li>Less processing inside Tableau</li>
+<li>Easier dashboard maintenance</li>
+<li>Consistent calculations</li>
+</ul>
+<p>The final dataset follows a <strong>wide-table structure</strong> designed specifically for dashboard analysis.</p>
+</section>
+<section id="dashboard-dataset" class="slide level2 smaller">
+<h2>Dashboard Dataset</h2>
+<p>The Materialized View contains both original and derived variables.</p>
+<h3 id="example-fields">Example Fields</h3>
+<ul>
+<li>Ride ID</li>
+<li>Ride date</li>
+<li>Month</li>
+<li>Hour</li>
+<li>Day of week</li>
+<li>Member type</li>
+<li>Bike type</li>
+<li>Duration</li>
+<li>Distance</li>
+<li>Start station</li>
+<li>End station</li>
+<li>Start neighborhood</li>
+<li>End neighborhood</li>
+<li>Temperature</li>
+<li>Rain</li>
+<li>Snow</li>
+<li>Weather flags</li>
+</ul>
+</section>
+<section id="connecting-tableau-to-postgresql" class="slide level2 smaller">
+<h2>6. Connecting Tableau to PostgreSQL</h2>
+<p>Tableau Desktop connects directly to the PostgreSQL database. <br><br></p>
+<h3 id="connection-information">Connection Information</h3>
+<ul>
+<li>Host: <code>localhost</code></li>
+<li>Port: <code>5432</code></li>
+<li>Database: <code>citibike</code></li>
+<li>Schema: <code>public</code></li>
+<li>Data source: <code>mv_tableau_citibike_dashboard</code></li>
+</ul>
+<p>This creates a centralized analytical data source instead of loading independent CSV files into Tableau.</p>
+</section>
+<section id="building-a-tableau-extract" class="slide level2 smaller">
+<h2>7. Building a Tableau Extract</h2>
+<p>After connecting to PostgreSQL, a Tableau <strong>Extract</strong> is created. <br><br></p>
+<h3 id="source">Source</h3>
+<p><code>mv_tableau_citibike_dashboard</code> <br><br></p>
+<h3 id="extract-format">Extract Format</h3>
+<p><code>.hyper</code> <br><br></p>
+<h3 id="why-use-an-extract">Why Use an Extract?</h3>
+<ul>
+<li>Faster dashboard performance</li>
+<li>Optimized Tableau aggregations</li>
+<li>Reduced database workload</li>
+<li>Dashboard can work offline</li>
+<li>Smaller analytical file</li>
+</ul>
+</section>
+<section id="tableau-dashboard" class="slide level2 smaller">
+<h2>8. Tableau Dashboard</h2>
+<p>The final stage is an interactive Tableau dashboard. <br><br></p>
+<h3 id="dashboard-components">Dashboard Components</h3>
+<ul>
+<li>KPI cards</li>
+<li>Date filters</li>
+<li>Member type filters</li>
+<li>Bike type filters</li>
+<li>Daily ride trend</li>
+<li>Hourly demand</li>
+<li>Day-of-week analysis</li>
+<li>Top start stations</li>
+<li>Top end stations</li>
+<li>Neighborhood maps</li>
+<li>Temperature analysis</li>
+<li>Weather impact</li>
+<li>Ride-level detail table</li>
+</ul>
+</section>
+<section id="dashboard-kpis" class="slide level2 smaller">
+<h2>Dashboard KPIs</h2>
+<p>The dashboard begins with a high-level overview of Citi Bike activity. <br><br></p>
+<h3 id="example-kpis">Example KPIs</h3>
+<ul>
+<li>Total rides</li>
+<li>Average ride duration</li>
+<li>Average ride distance</li>
+<li>Member share</li>
+<li>Number of rainy-day rides</li>
+</ul>
+<p>KPIs allow users to understand the overall performance before exploring individual charts.</p>
+</section>
+<section id="dashboard-time-analysis" class="slide level2 smaller">
+<h2>Dashboard: Time Analysis</h2>
+<p>The dashboard provides several views of activity over time. <br><br></p>
+<h3 id="visualizations">Visualizations</h3>
+<ul>
+<li>Daily ride trend</li>
+<li>Rides by hour of day</li>
+<li>Rides by day of week</li>
+<li>Monthly trend</li>
+</ul>
+<p>These charts help identify peak usage periods and seasonal patterns.</p>
+</section>
+<section id="dashboard-geographic-analysis" class="slide level2 smaller">
+<h2>Dashboard: Geographic Analysis</h2>
+<p>Neighborhood and station information is displayed geographically. <br><br></p>
+<h3 id="geographic-visualizations">Geographic Visualizations</h3>
+<ul>
+<li>Top start neighborhoods</li>
+<li>Top end neighborhoods</li>
+<li>Start station activity</li>
+<li>End station activity</li>
+</ul>
+<p>Spatial analysis helps reveal which parts of Jersey City generate the highest Citi Bike demand.</p>
+</section>
+<section id="dashboard-weather-analysis" class="slide level2 smaller">
+<h2>Dashboard: Weather Analysis</h2>
+<p>Weather measures are connected with Citi Bike demand. <br><br></p>
+<h3 id="analysis">Analysis</h3>
+<ul>
+<li>Rides vs temperature</li>
+<li>Daily rides and temperature trend</li>
+<li>Rainy-day usage</li>
+<li>Seasonal weather changes</li>
+</ul>
+<p>This can help explain why demand changes throughout the year.</p>
+</section>
+<section id="final-data-architecture" class="slide level2 smaller">
+<h2>Final Data Architecture</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>Citi Bike ZIP Files</span>
+<span id="cb6-2"><a></a>        |</span>
+<span id="cb6-3"><a></a>        |</span>
+<span id="cb6-4"><a></a>Weather API ---------&gt; Python</span>
+<span id="cb6-5"><a></a>        |               |</span>
+<span id="cb6-6"><a></a>Neighborhood GeoJSON    |</span>
+<span id="cb6-7"><a></a>                        v</span>
+<span id="cb6-8"><a></a>              Data Preparation</span>
+<span id="cb6-9"><a></a>                        |</span>
+<span id="cb6-10"><a></a>                        v</span>
+<span id="cb6-11"><a></a>              Python Analysis</span>
+<span id="cb6-12"><a></a>                        |</span>
+<span id="cb6-13"><a></a>                        v</span>
+<span id="cb6-14"><a></a>              PostgreSQL/PostGIS</span>
+<span id="cb6-15"><a></a>                        |</span>
+<span id="cb6-16"><a></a>                        v</span>
+<span id="cb6-17"><a></a>               Materialized View</span>
+<span id="cb6-18"><a></a>                        |</span>
+<span id="cb6-19"><a></a>                        v</span>
+<span id="cb6-20"><a></a>                    Tableau</span>
+<span id="cb6-21"><a></a>                        |</span>
+<span id="cb6-22"><a></a>                        v</span>
+<span id="cb6-23"><a></a>                Tableau Extract</span>
+<span id="cb6-24"><a></a>                        |</span>
+<span id="cb6-25"><a></a>                        v</span>
+<span id="cb6-26"><a></a>               Interactive Dashboard</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="what-i-learned" class="slide level2 smaller">
+<h2>What I Learned</h2>
+<p>This project demonstrates that a dashboard is only the final stage of a much larger analytics workflow. <br><br></p>
+<h3 id="main-lessons">Main Lessons</h3>
+<ul>
+<li>Working with multiple data sources</li>
+<li>Automating web data collection</li>
+<li>Cleaning large datasets with pandas</li>
+<li>Working with REST APIs</li>
+<li>Performing spatial analysis</li>
+<li>Using PostgreSQL and PostGIS</li>
+<li>Creating analytical SQL views</li>
+<li>Connecting databases to Tableau</li>
+<li>Designing dashboard-ready datasets</li>
+<li>Building interactive visual analytics</li>
+</ul>
+</section>
+<section id="key-takeaway" class="slide level2 smaller">
+<h2>Key Takeaway</h2>
+<p><br><br></p>
+<p>The main objective was not only to create visualizations. <br><br></p>
+<p>The project demonstrates a complete <strong>end-to-end Data Analytics workflow</strong>:</p>
+<p><strong>Web Data → Python → Analysis → PostgreSQL/PostGIS → Tableau → Dashboard</strong> <br><br></p>
+<p>This approach separates:</p>
+<p><strong>Data Collection → Data Preparation → Analytics → Storage → Visualization</strong></p>
+<p>and creates a workflow that is easier to reproduce, maintain, and extend.</p>
+</section>
+<section id="thank-you" class="slide level2 smaller">
+<h2>Thank You</h2>
+<p><br><br></p>
+<h3 id="citi-bike-jersey-city-2025-2026">Citi Bike Jersey City 2025-2026</h3>
+<p><strong>End-to-End Data Analytics Project</strong></p>
+<p>Python · pandas · GeoPandas · PostgreSQL · PostGIS · Tableau</p>
+</section>
+<section>
+<section id="շնորհակալություն" class="title-slide slide level1 center">
+<h1>Շնորհակալություն<br>
+</h1>
+<p><span style="color: blue; font-size: 250%;"><strong>Կարեն Հովհաննիսյանին</strong></span></p>
+</section>
+<section class="slide level2">
+
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="img/favicon.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -202,7 +793,6 @@ Marine Petrosyan
   <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -218,14 +808,13 @@ Marine Petrosyan
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': true,
-'previewLinksAuto': true,
+'previewLinksAuto': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -371,12 +960,12 @@ Marine Petrosyan
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1500,
+        width: 1600,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+        margin: 8.0e-2,
 
         math: {
           mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
@@ -396,7 +985,7 @@ Marine Petrosyan
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,
