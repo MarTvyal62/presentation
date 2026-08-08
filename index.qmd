@@ -1,7 +1,7 @@
 ---
-title: "DataOps"
+title: "Citibike"
 # subtitle: "My Visuan"
-author: "Karen Hovhannisyan"
+author: "Marine Petrosyan"
 date: last-modified
 image_path: "img/"
 format:
