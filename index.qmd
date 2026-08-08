@@ -1,7 +1,7 @@
 ---
 title: "Citi Bike Jersey City 2025-2026"
 subtitle: "From Raw Data to an Interactive Tableau Dashboard"
-author: "Data Analytics Project"
+author: "**Marine Petrosyan**" 
 adjusting: c
 format:
   revealjs:
@@ -13,6 +13,8 @@ format:
     width: 1600
     height: 900
     margin: 0.08
+    touch: true
+    chalkboard: true
 ---
 
 ## Project Overview {.smaller}
