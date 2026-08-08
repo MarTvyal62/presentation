@@ -1,8 +1,10 @@
-title: "Citi Bike Jersey City 2025-2026“
+---
+title: "Citi Bike Jersey City 2025-2026"
 subtitle: "From Raw Data to an Interactive Tableau Dashboard"
 author: "Data Analytics Project"
+adjusting: c
 format:
-  reveals:
+  revealjs:
     theme: white
     slide-number: false
     incremental: false
@@ -14,7 +16,7 @@ format:
 ---
 
 ## Project Overview {.smaller}
-description: |
+<br><br />
 This project analyzes **Jersey City Citi Bike trips during 2025-2026** by combining trip, weather, and geographic data.
 
 The objective is to build a complete analytics workflow from raw web data to an interactive Tableau dashboard.
@@ -37,9 +39,9 @@ The objective is to build a complete analytics workflow from raw web data to an 
 ---
 
 ## Technologies Used {.smaller}
+<br><br />
 
 ### Main Technology Stack
-
 
 - **Python** — data collection, preparation, analysis
 - **pandas** — tabular data manipulation
@@ -57,9 +59,9 @@ The objective is to build a complete analytics workflow from raw web data to an 
 ## 1. Downloading Data from the Web {.smaller}
 
 The project starts with three independent external data sources.
+<br><br />
 
 ### Citi Bike Trip Data
-
 
 - Monthly Citi Bike ZIP files
 - Approximately 12 monthly datasets
@@ -68,13 +70,11 @@ The project starts with three independent external data sources.
 
 ### Weather Data
 
-
 - Open-Meteo Historical Weather API
 - Daily weather observations
 - JSON response converted to tabular format
 
 ### Geographic Data
-
 
 - Jersey City neighborhood GeoJSON
 - Polygon boundaries used for spatial analysis
@@ -84,10 +84,9 @@ The project starts with three independent external data sources.
 ## Citi Bike Trip Data {.smaller}
 
 The Citi Bike dataset contains individual bicycle trips.
+<br><br />
 
 ### Important Variables
-
-
 - `ride_id`
 - `rideable_type`
 - `started_at`
@@ -107,6 +106,7 @@ Each row represents **one Citi Bike trip**.
 ## Weather Data {.smaller}
 
 Weather information is retrieved using the **Open-Meteo API**.
+<br><br />
 
 ### Daily Weather Variables
 
@@ -126,6 +126,7 @@ The weather data is later joined with Citi Bike trips using the **ride date**.
 ## Neighborhood Geographic Data {.smaller}
 
 The neighborhood dataset contains Jersey City polygon boundaries in **GeoJSON** format.
+<br><br />
 
 ### Geographic Data Usage
 
@@ -145,6 +146,7 @@ GeoPandas and PostGIS are used for spatial operations.
 The raw datasets cannot be analyzed directly.
 
 A data preparation pipeline is created in Python.
+<br><br />
 
 ### Main Preparation Steps
 
@@ -166,7 +168,7 @@ A data preparation pipeline is created in Python.
 
 Example Python workflow:
 
-```{python}
+```python
 import pandas as pd
 
 citibike_df["started_at"] = pd.to_datetime(
@@ -189,6 +191,7 @@ The main goal is to produce a consistent dataset before beginning the analysis.
 ## Feature Engineering {.smaller}
 
 Several analytical variables are created from the original trip data.
+<br><br />
 
 ### Time Features
 
@@ -200,6 +203,8 @@ Several analytical variables are created from the original trip data.
 - Day of week
 - Hour
 - Weekend / weekday
+  
+---
 
 ### Ride Features
 
@@ -208,6 +213,8 @@ Several analytical variables are created from the original trip data.
 - Distance
 - Distance category
 - Duration category
+  
+---
 
 ### Weather Features
 
@@ -219,8 +226,9 @@ Several analytical variables are created from the original trip data.
 ---
 
 ## Example: Ride Duration {.smaller}
+<br><br />
 
-```{python}
+```python
 citibike_df["duration_min"] = (
     citibike_df["ended_at"]
     - citibike_df["started_at"]
@@ -234,6 +242,7 @@ Ride duration allows us to analyze how long users typically keep a Citi Bike.
 ## 3. Analysis with Python {.smaller}
 
 Python is used for the initial exploratory analysis before building the Tableau dashboard.
+<br><br />
 
 ### Main Analysis Areas
 
@@ -252,6 +261,7 @@ Python is used for the initial exploratory analysis before building the Tableau 
 ## Exploratory Data Analysis {.smaller}
 
 The first stage focuses on understanding the structure and quality of the dataset.
+<br><br />
 
 ### Questions
 
@@ -268,6 +278,7 @@ The first stage focuses on understanding the structure and quality of the datase
 ## Time Trend Analysis {.smaller}
 
 Trip activity is analyzed across different time dimensions.
+<br><br />
 
 ### Time Aggregations
 
@@ -285,6 +296,7 @@ This helps identify commuting patterns and seasonal differences in bike usage.
 ## Member vs Casual Riders {.smaller}
 
 Citi Bike users are divided into two main categories:
+<br><br />
 
 ### Member
 
@@ -292,6 +304,7 @@ Citi Bike users are divided into two main categories:
 - Subscription-based users
 - More frequent usage
 - Often associated with commuting behavior
+<br><br />
 
 ### Casual
 
@@ -305,6 +318,7 @@ Citi Bike users are divided into two main categories:
 ## Station Analysis {.smaller}
 
 Station activity is analyzed using both departure and arrival information.
+<br><br />
 
 ### Metrics
 
@@ -322,6 +336,7 @@ This can help identify high-demand areas in the Citi Bike network.
 ## Spatial Analysis {.smaller}
 
 Latitude and longitude coordinates allow us to perform geographic analysis.
+<br><br />
 
 ### Spatial Operations
 
@@ -334,7 +349,7 @@ Latitude and longitude coordinates allow us to perform geographic analysis.
 
 Example:
 
-```{python}
+```python
 stations_with_neighborhood = gpd.sjoin(
     stations_gdf,
     neighborhoods_gdf,
@@ -347,6 +362,7 @@ stations_with_neighborhood = gpd.sjoin(
 ## Weather Impact Analysis {.smaller}
 
 Weather data is combined with daily Citi Bike activity.
+<br><br />
 
 ### Questions
 
@@ -365,6 +381,7 @@ The relationship between temperature and daily rides is particularly useful for 
 After the Python analysis, cleaned datasets are stored in **PostgreSQL**.
 
 PostGIS is enabled to support geographic data.
+<br><br />
 
 ### Database
 
@@ -377,6 +394,7 @@ PostGIS is enabled to support geographic data.
 ---
 
 ## Database Structure {.smaller}
+<br><br />
 
 Main database tables:
 
@@ -394,6 +412,7 @@ The database separates raw analytical entities while SQL is used to combine them
 ## PostgreSQL + PostGIS {.smaller}
 
 PostGIS extends PostgreSQL with geographic functionality.
+<br><br />
 
 Example spatial operation:
 
@@ -414,20 +433,28 @@ This assigns each station to its corresponding Jersey City neighborhood.
 ---
 
 ## 5. Dashboard-Ready Materialized View {.smaller}
+<br><br />
 
 Instead of asking Tableau to repeatedly join multiple large tables, a **Materialized View** is created.
 
 ```sql
-CREATE MATERIALIZED VIEW
-mv_tableau_citibike_dashboard
-AS
-
+CREATE MATERIALIZED VIEW mv_tableau_citibike_dashboard AS
+WITH ride_base AS (
+    SELECT
+        ...
+	)
 SELECT
     ...
-FROM jersey_city AS rides
+FROM ride_base AS r
 
-LEFT JOIN jersey_weather AS weather
-    ON rides.ride_date = weather.date;
+LEFT JOIN jersey_weather AS w
+    ON r.ride_date = w.date::date
+
+LEFT JOIN jersey_city_neighborhoods AS start_n
+    ON ST_Within(r.start_geom, start_n.geometry)
+
+LEFT JOIN jersey_city_neighborhoods AS end_n
+    ON ST_Within(r.end_geom, end_n.geometry)
 ```
 
 The view becomes the main analytical dataset for Tableau.
@@ -437,6 +464,7 @@ The view becomes the main analytical dataset for Tableau.
 ## Why Use a Materialized View? {.smaller}
 
 A Materialized View stores the result of the analytical query physically in PostgreSQL.
+<br><br />
 
 ### Benefits
 
@@ -456,8 +484,8 @@ The final dataset follows a **wide-table structure** designed specifically for d
 
 The Materialized View contains both original and derived variables.
 
-### Example Fields
 
+### Example Fields
 
 - Ride ID
 - Ride date
@@ -482,6 +510,7 @@ The Materialized View contains both original and derived variables.
 ## 6. Connecting Tableau to PostgreSQL {.smaller}
 
 Tableau Desktop connects directly to the PostgreSQL database.
+<br><br />
 
 ### Connection Information
 
@@ -499,16 +528,19 @@ This creates a centralized analytical data source instead of loading independent
 ## 7. Building a Tableau Extract {.smaller}
 
 After connecting to PostgreSQL, a Tableau **Extract** is created.
+<br><br />
 
 ### Source
 
 
 `mv_tableau_citibike_dashboard`
+<br><br />
 
 ### Extract Format
 
 
 `.hyper`
+<br><br />
 
 ### Why Use an Extract?
 
@@ -524,6 +556,7 @@ After connecting to PostgreSQL, a Tableau **Extract** is created.
 ## 8. Tableau Dashboard {.smaller}
 
 The final stage is an interactive Tableau dashboard.
+<br><br />
 
 ### Dashboard Components
 
@@ -547,6 +580,7 @@ The final stage is an interactive Tableau dashboard.
 ## Dashboard KPIs {.smaller}
 
 The dashboard begins with a high-level overview of Citi Bike activity.
+<br><br />
 
 ### Example KPIs
 
@@ -564,6 +598,7 @@ KPIs allow users to understand the overall performance before exploring individu
 ## Dashboard: Time Analysis {.smaller}
 
 The dashboard provides several views of activity over time.
+<br><br />
 
 ### Visualizations
 
@@ -580,6 +615,7 @@ These charts help identify peak usage periods and seasonal patterns.
 ## Dashboard: Geographic Analysis {.smaller}
 
 Neighborhood and station information is displayed geographically.
+<br><br />
 
 ### Geographic Visualizations
 
@@ -596,9 +632,9 @@ Spatial analysis helps reveal which parts of Jersey City generate the highest Ci
 ## Dashboard: Weather Analysis {.smaller}
 
 Weather measures are connected with Citi Bike demand.
+<br><br />
 
 ### Analysis
-
 
 - Rides vs temperature
 - Daily rides and temperature trend
@@ -645,6 +681,7 @@ Neighborhood GeoJSON    |
 ## What I Learned {.smaller}
 
 This project demonstrates that a dashboard is only the final stage of a much larger analytics workflow.
+<br><br />
 
 ### Main Lessons
 
@@ -663,12 +700,15 @@ This project demonstrates that a dashboard is only the final stage of a much lar
 ---
 
 ## Key Takeaway {.smaller}
+<br><br />
 
 The main objective was not only to create visualizations.
+<br><br />
 
 The project demonstrates a complete **end-to-end Data Analytics workflow**:
 
 **Web Data → Python → Analysis → PostgreSQL/PostGIS → Tableau → Dashboard**
+<br><br />
 
 This approach separates:
 
@@ -679,9 +719,17 @@ and creates a workflow that is easier to reproduce, maintain, and extend.
 ---
 
 ## Thank You {.smaller}
+<br><br />
 
-### Citi Bike Jersey City 2025-2025
+### Citi Bike Jersey City 2025-2026
 
 **End-to-End Data Analytics Project**
 
 Python · pandas · GeoPandas · PostgreSQL · PostGIS · Tableau
+
+
+
+# Շնորհակալություն \
+ [**Կարեն Հովհաննիսյանին**]{style="color: blue; font-size: 250%;"}
+
+---
