@@ -66,9 +66,9 @@ The project starts with three independent external data sources.
 ### Citi Bike Trip Data
 
 - Monthly Citi Bike ZIP files
-- Approximately 12 monthly datasets
+- Approximately 18 monthly datasets
 - Each ZIP file contains CSV trip records
-- Jersey City trips for the year 2025
+- Jersey City trips for the year 2025 and 2026 are extracted and combined
 
 ### Weather Data
 
@@ -293,6 +293,8 @@ Trip activity is analyzed across different time dimensions.
 
 This helps identify commuting patterns and seasonal differences in bike usage.
 
+![](img/rides_per_day_of_week.png){width=80%}
+
 ---
 
 ## Member vs Casual Riders {.smaller}
@@ -348,6 +350,7 @@ Latitude and longitude coordinates allow us to perform geographic analysis.
 - Perform spatial joins
 - Assign stations to neighborhoods
 - Aggregate rides by neighborhood
+- Define top routes
 
 Example:
 
@@ -358,6 +361,9 @@ stations_with_neighborhood = gpd.sjoin(
     predicate="within"
 )
 ```
+---
+
+![Top 10 Routes](img/top_10_routes.png){width=90%} 
 
 ---
 
@@ -375,6 +381,8 @@ Weather data is combined with daily Citi Bike activity.
 - Does wind speed influence activity?
 
 The relationship between temperature and daily rides is particularly useful for understanding seasonal demand.
+
+![](img/rides_vs_tempr_precip.png){width=80%}
 
 ---
 
@@ -575,7 +583,8 @@ The final stage is an interactive Tableau dashboard.
 - Neighborhood maps
 - Temperature analysis
 - Weather impact
-- Ride-level detail table
+
+[Tableau Dashboard](https://public.tableau.com/app/profile/marine.petrosyan/viz/citibike_with_db/CitiBikeJerseyCityDashboard?publish=yes){target="_blank"}
 
 ---
 
