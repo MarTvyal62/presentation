@@ -25,7 +25,7 @@
     "href": "index.html#downloading-data-from-the-web",
     "title": "Citi Bike Jersey City 2025-2026",
     "section": "1. Downloading Data from the Web",
-    "text": "1. Downloading Data from the Web\nThe project starts with three independent external data sources. \nCiti Bike Trip Data\n\nMonthly Citi Bike ZIP files\nApproximately 12 monthly datasets\nEach ZIP file contains CSV trip records\nJersey City trips for the year 2025\n\nWeather Data\n\nOpen-Meteo Historical Weather API\nDaily weather observations\nJSON response converted to tabular format\n\nGeographic Data\n\nJersey City neighborhood GeoJSON\nPolygon boundaries used for spatial analysis"
+    "text": "1. Downloading Data from the Web\nThe project starts with three independent external data sources. \nCiti Bike Trip Data\n\nMonthly Citi Bike ZIP files\nApproximately 18 monthly datasets\nEach ZIP file contains CSV trip records\nJersey City trips for the year 2025 and 2026 are extracted and combined\n\nWeather Data\n\nOpen-Meteo Historical Weather API\nDaily weather observations\nJSON response converted to tabular format\n\nGeographic Data\n\nJersey City neighborhood GeoJSON\nPolygon boundaries used for spatial analysis"
   },
   {
     "objectID": "index.html#citi-bike-trip-data-1",
@@ -116,7 +116,7 @@
     "href": "index.html#spatial-analysis",
     "title": "Citi Bike Jersey City 2025-2026",
     "section": "Spatial Analysis",
-    "text": "Spatial Analysis\nLatitude and longitude coordinates allow us to perform geographic analysis. \nSpatial Operations\n\nConvert stations into geographic points\nLoad neighborhood polygons\nPerform spatial joins\nAssign stations to neighborhoods\nAggregate rides by neighborhood\n\nExample:\nstations_with_neighborhood = gpd.sjoin(\n    stations_gdf,\n    neighborhoods_gdf,\n    predicate=\"within\"\n)"
+    "text": "Spatial Analysis\nLatitude and longitude coordinates allow us to perform geographic analysis. \nSpatial Operations\n\nConvert stations into geographic points\nLoad neighborhood polygons\nPerform spatial joins\nAssign stations to neighborhoods\nAggregate rides by neighborhood\nDefine top routes\n\nExample:\nstations_with_neighborhood = gpd.sjoin(\n    stations_gdf,\n    neighborhoods_gdf,\n    predicate=\"within\"\n)"
   },
   {
     "objectID": "index.html#weather-impact-analysis",
@@ -186,7 +186,7 @@
     "href": "index.html#tableau-dashboard",
     "title": "Citi Bike Jersey City 2025-2026",
     "section": "8. Tableau Dashboard",
-    "text": "8. Tableau Dashboard\nThe final stage is an interactive Tableau dashboard. \nDashboard Components\n\nKPI cards\nDate filters\nMember type filters\nBike type filters\nDaily ride trend\nHourly demand\nDay-of-week analysis\nTop start stations\nTop end stations\nNeighborhood maps\nTemperature analysis\nWeather impact\nRide-level detail table"
+    "text": "8. Tableau Dashboard\nThe final stage is an interactive Tableau dashboard. \nDashboard Components\n\nKPI cards\nDate filters\nMember type filters\nBike type filters\nDaily ride trend\nHourly demand\nDay-of-week analysis\nTop start stations\nTop end stations\nNeighborhood maps\nTemperature analysis\nWeather impact\n\nTableau Dashboard"
   },
   {
     "objectID": "index.html#dashboard-kpis",

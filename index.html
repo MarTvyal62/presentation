@@ -248,9 +248,9 @@
 <h3 id="citi-bike-trip-data">Citi Bike Trip Data</h3>
 <ul>
 <li>Monthly Citi Bike ZIP files</li>
-<li>Approximately 12 monthly datasets</li>
+<li>Approximately 18 monthly datasets</li>
 <li>Each ZIP file contains CSV trip records</li>
-<li>Jersey City trips for the year 2025</li>
+<li>Jersey City trips for the year 2025 and 2026 are extracted and combined</li>
 </ul>
 <h3 id="weather-data">Weather Data</h3>
 <ul>
@@ -429,7 +429,8 @@
 <li>Seasonal activity</li>
 </ul>
 <p>This helps identify commuting patterns and seasonal differences in bike usage.</p>
-</section>
+
+<img data-src="img/rides_per_day_of_week.png" style="width:80.0%" class="r-stretch"></section>
 <section id="member-vs-casual-riders" class="slide level2 smaller">
 <h2>Member vs Casual Riders</h2>
 <p>Citi Bike users are divided into two main categories: <br><br></p>
@@ -469,6 +470,7 @@
 <li>Perform spatial joins</li>
 <li>Assign stations to neighborhoods</li>
 <li>Aggregate rides by neighborhood</li>
+<li>Define top routes</li>
 </ul>
 <p>Example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>stations_with_neighborhood <span class="op">=</span> gpd.sjoin(</span>
@@ -477,6 +479,10 @@
 <span id="cb3-4"><a></a>    predicate<span class="op">=</span><span class="st">"within"</span></span>
 <span id="cb3-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section class="slide level2">
+
+
+<img data-src="img/top_10_routes.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Top 10 Routes</p></section>
 <section id="weather-impact-analysis" class="slide level2 smaller">
 <h2>Weather Impact Analysis</h2>
 <p>Weather data is combined with daily Citi Bike activity. <br><br></p>
@@ -488,7 +494,8 @@
 <li>Does wind speed influence activity?</li>
 </ul>
 <p>The relationship between temperature and daily rides is particularly useful for understanding seasonal demand.</p>
-</section>
+
+<img data-src="img/rides_vs_tempr_precip.png" style="width:80.0%" class="r-stretch"></section>
 <section id="creating-the-citi-bike-database" class="slide level2 smaller">
 <h2>4. Creating the Citi Bike Database</h2>
 <p>After the Python analysis, cleaned datasets are stored in <strong>PostgreSQL</strong>.</p>
@@ -655,8 +662,8 @@
 <li>Neighborhood maps</li>
 <li>Temperature analysis</li>
 <li>Weather impact</li>
-<li>Ride-level detail table</li>
 </ul>
+<p><a href="https://public.tableau.com/app/profile/marine.petrosyan/viz/citibike_with_db/CitiBikeJerseyCityDashboard?publish=yes" target="_blank">Tableau Dashboard</a></p>
 </section>
 <section id="dashboard-kpis" class="slide level2 smaller">
 <h2>Dashboard KPIs</h2>
