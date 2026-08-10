@@ -773,5 +773,5 @@ Python · pandas · GeoPandas · PostgreSQL · PostGIS · Tableau  \
 \
 
 ### Tableau Public
-#### https://public.tableau.com/app/profile/marine.petrosyan/viz/citibike_with_db/CitiBikeJerseyCityDashboard?publish=yes)
+#### https://public.tableau.com/app/profile/marine.petrosyan/vizzes
 
