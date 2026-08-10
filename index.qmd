@@ -1,7 +1,7 @@
 ---
 title: "Citi Bike Jersey City 2025-2026"
 subtitle: "From Raw Data to an Interactive Tableau Dashboard"
-author: "**Marine Petrosyan**" 
+author: "**Marine Petrosyan**"
 adjusting: c
 format:
   revealjs:
@@ -293,7 +293,21 @@ Trip activity is analyzed across different time dimensions.
 
 This helps identify commuting patterns and seasonal differences in bike usage.
 
+---
+
+![](img/ride_per_season.png){width=80%}
+
+---
+
+![](img/rides_per_month.png){width=80%}
+
+---
+
 ![](img/rides_per_day_of_week.png){width=80%}
+
+---
+
+![](img/rides_per_time_of_day.png){width=80%}
 
 ---
 
@@ -381,6 +395,15 @@ Weather data is combined with daily Citi Bike activity.
 - Does wind speed influence activity?
 
 The relationship between temperature and daily rides is particularly useful for understanding seasonal demand.
+---
+
+![](img/rides_vs_temperature.png){width=80%}
+
+---
+
+![](img/rides_vs_temp_and_wind_speed.png){width=80%}
+
+---
 
 ![](img/rides_vs_tempr_precip.png){width=80%}
 
@@ -736,11 +759,19 @@ and creates a workflow that is easier to reproduce, maintain, and extend.
 
 **End-to-End Data Analytics Project**
 
-Python · pandas · GeoPandas · PostgreSQL · PostGIS · Tableau
+Python · pandas · GeoPandas · PostgreSQL · PostGIS · Tableau  \
+\
 
+### *Let's Connect*
 
+### Likedin: 
+#### https://www.linkedin.com/in/marine-petrosyan-144826141/ 
+\
 
-# Շնորհակալություն \
- [**Կարեն Հովհաննիսյանին**]{style="color: blue; font-size: 250%;"}
+### GitHub
+#### https://github.com/MarTvyal62
+\
 
----
+### Tableau Public
+#### https://public.tableau.com/app/profile/marine.petrosyan/viz/citibike_with_db/CitiBikeJerseyCityDashboard?publish=yes)
+
